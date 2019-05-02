@@ -1,11 +1,15 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
   <title>{% block title%}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'plugins/trumbowyg.min.css' %}">
   {% block extraCss %}{% endblock %}
 </head>
 <body>
   {% block content %}{% endblock %}
+  <script src="{% static 'plugins/jquery.min.js' %}"></script>
+  <script src="{% static 'plugins/trumbowyg.min.js' %}"></script>
   {% block extraJs %}{% endblock %}
 </body>
 </html>

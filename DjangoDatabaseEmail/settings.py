@@ -120,6 +120,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Config router statics files
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static/'),
+)
+
+
 # Email backend config
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
