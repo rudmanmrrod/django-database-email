@@ -9,9 +9,10 @@
 {% block extraJs %}
 <script>
   URL_GET = "{% url 'emails:get_fields' %}"
-  document.onreadystatechange = function () {
+  
+  document.addEventListener("DOMContentLoaded", function() {
     loadFields(document.getElementById('id_models').value)
     $('.trumbowyg').trumbowyg();
-  }
+  });
 </script>
 {% endblock %}
