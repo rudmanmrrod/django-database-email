@@ -8,8 +8,10 @@
 {% endblock %}
 {% block extraJs %}
 <script>
-  $(document).ready(function(){
+  URL_GET = "{% url 'emails:get_fields' %}"
+  document.onreadystatechange = function () {
+    loadFields(document.getElementById('id_models').value)
     $('.trumbowyg').trumbowyg();
-  })
+  }
 </script>
 {% endblock %}
