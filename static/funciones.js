@@ -19,3 +19,12 @@ function loadFields(pk){
     },
   });
 }
+
+function addToHtml(){
+  var model = document.getElementById('id_models').value
+  var val = document.getElementById('id_fields').value
+  var html_content = $('#id_mail').trumbowyg('html');
+  console.log(html_content)
+  var content = "{{"+val+"}}"
+  $('#id_mail').trumbowyg('html',html_content+" "+content);
+}

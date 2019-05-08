@@ -1,6 +1,7 @@
 from django.apps import apps
 from django.contrib.contenttypes.models import ContentType
 from django.http import JsonResponse
+from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
@@ -16,6 +17,7 @@ class MailCreateView(CreateView):
   form_class = EmailForm
   model = EmailTemplate
   template_name = "email.create.html"
+  success_url = reverse_lazy("emails:list_email")
 
 class GetFieldsView(View):
 

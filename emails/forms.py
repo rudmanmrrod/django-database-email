@@ -8,7 +8,7 @@ class EmailForm(forms.ModelForm):
     widget=forms.Select(attrs={'onchange':'loadFields(this.value)'}),
     required=False)
 
-  fields = forms.ChoiceField(choices=(('',''),),required=False)
+  fields = forms.CharField(required=False)
 
   class Meta:
     model = EmailTemplate
@@ -16,4 +16,5 @@ class EmailForm(forms.ModelForm):
 
   def __init__(self, *args, **kwargs):
     super().__init__(*args, **kwargs)
-    self.fields['mail'].widget.attrs.update({'class': 'trumbowyg'})
+    self.fields['fields'].widget = forms.Select()
+    #self.fields['mail'].widget.attrs.update({'class': 'trumbowyg'})
