@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
+  <a href="{% url 'emails:list_email' %}" class="button">back</a>
   <form method="post">{% csrf_token %}
     {{ form.as_p }}
-    <a type="button" href="#" onclick="addToHtml()">Append</a>
-    <button type="submit">Register</button>
+    <a class="addlink" href="#" onclick="addToHtml()">Append</a>
+    <button type="submit" class="button">Register</button>
   </form>
 {% endblock %}
 {% block extraJs %}

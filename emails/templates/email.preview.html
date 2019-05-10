@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-  <a href="{% url 'emails:list_email' %}">back</a>
+  <a href="{% url 'emails:list_email' %}" class="button">back</a>
   <h1>Email preview</h1>
   {{preview}}
 {% endblock %}

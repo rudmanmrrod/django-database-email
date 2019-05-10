@@ -3,11 +3,20 @@
 <html>
 <head>
   <title>{% block title%}{% endblock %}</title>
+  <link href="{% static 'admin/css/base.css' %}" rel="stylesheet">
+  <link href="{% static 'admin/css/forms.css' %}" rel="stylesheet">
+  <link href="{% static 'admin/css/responsive.css' %}" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'plugins/trumbowyg.min.css' %}">
   {% block extraCss %}{% endblock %}
 </head>
 <body>
-  {% block content %}{% endblock %}
+  <div id="container">
+    <div id="header">
+    </div>
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
   <script src="{% static 'plugins/jquery.min.js' %}"></script>
   <script src="{% static 'plugins/trumbowyg.min.js' %}"></script>
   <script src="{% static 'funciones.js' %}"></script>
