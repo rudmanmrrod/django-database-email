@@ -3,12 +3,24 @@
   <a href="{% url 'emails:create_email' %}">Register Email</a>
   <br>
   <h1>Email List</h1>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Mail Content</th>
+      <th>Options</th>
+    </tr>
   {% for email in object_list %}
-    {{ email.name }}<br>
-    {{ email.mail }}
+    <tr>  
+      <td>{{ email.name }}</td>
+      <td>{{ email.mail }}</td>
+      <td><a href="{% url 'emails:detail_email' email.pk %}">Preview</a></td>
+    </tr>
   {% empty %}
-    <li>No emails yet.</li>
+    <tr>
+      <td colspan="2">No emails yet.</td>
+    </tr>
   {% endfor %}
+  </table>
 
   {% if object_list %}
     <div class="pagination">

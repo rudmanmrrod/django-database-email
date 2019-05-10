@@ -3,7 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView
 from .forms import *
 from .models import *
@@ -31,3 +31,14 @@ class GetFieldsView(View):
     except Exception as e:
       print(e)
       return JsonResponse([], safe=False)
+
+class MailPreview(DetailView):
+  model = EmailTemplate
+  template_name = "email.preview.html"
+
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    mail = self.object
+    data = {'username':'Rudman'}
+    context['preview'] = mail.validate_email_content(**data)
+    return context
